@@ -1,0 +1,17 @@
+{
+  "name": "thoughtsApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "next"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^9.0.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}
