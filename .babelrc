@@ -1,0 +1,6 @@
+// config will let us use styled components within next js
+{
+  "presets": ["next/babel"],
+  "plugins": [["styled-components", { "ssr": true }]]
+}
+
