@@ -1,18 +1,23 @@
-import styled from 'styled-components'
+import Container from 'react-bootstrap/Container'
+import fetch from 'isomorphic-fetch'
+import Thoughts from '../components/Thoughts'
 
-const Rocket = styled.div`
-  text-align: center;
-  img {
-    width: 630px;
-  }
-`
-
-function Index() {
+function Index(props) {
+  const { thoughts } = props
   return (
-    <Rocket>
-      <img src='https://media.giphy.com/media/QbumCX9HFFDQA/giphy.gif' />
-    </Rocket>
+    <Container>
+      <Thoughts thoughts={thoughts} />
+    </Container>
   )
+}
+
+// this makes a call to the next server to grab the data BEFORE html is rendered
+Index.getInitialProps = async ({ req }) => {
+  const url = req ? `${req.protocol}://${req.get('Host')}` : ''
+  const res = await fetch(`${url}/api/thoughts`)
+  return {
+    thoughts: await res.json()
+  }
 }
 
 export default Index
